@@ -12,6 +12,5 @@ enum API {
     
     enum Todos {
         static let all = "/todos"
-        static let search = "/todos/search"
     }
 }
