@@ -1,5 +1,5 @@
 //
-//  Untitled.swift
+//  NetworkError.swift
 //  ToDoList
 //
 //  Created by Даниил on 09.03.2026.
