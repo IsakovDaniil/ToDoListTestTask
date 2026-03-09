@@ -12,7 +12,7 @@ enum NetworkError: LocalizedError {
     case noData
     case serverError(statusCode: Int)
     case decodingFailed(Error)
-    case unowned(Error?)
+    case unknown(Error?)
     
     var errorDescription: String? {
         switch self {
@@ -20,7 +20,7 @@ enum NetworkError: LocalizedError {
         case .noData: "Нет данных от сервера"
         case .serverError(let code): "Ошибка сервера: \(code)"
         case .decodingFailed(let error): "Ошибка декодирования: \(error.localizedDescription)"
-        case .unowned(let error): error?.localizedDescription ?? "Неизвестная ошибка"
+        case .unknown(let error): error?.localizedDescription ?? "Неизвестная ошибка"
         }
     }
 }

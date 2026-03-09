@@ -1,5 +1,5 @@
 //
-//  ToDoListRespnseDTO.swift
+//  ToDoListResponseDTO.swift
 //  ToDoList
 //
 //  Created by Даниил on 09.03.2026.
@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct ToDoListRespnoseDTO: Decodable {
+struct ToDoListResponseDTO: Decodable {
     let todos: [ToDoDTO]
 }
