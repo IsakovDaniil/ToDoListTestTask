@@ -18,6 +18,7 @@ final class TasksViewController: UIViewController {
     private enum Constants {
         static let title = "Задачи"
         static let searchPlaceholder = "Search"
+        static let toolBarLabel = "Нет задач"
     }
     
     // MARK: - Properties
@@ -32,6 +33,25 @@ final class TasksViewController: UIViewController {
         return search
     }()
     
+    private var toolBarLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Нет задач"
+        label.textColor = .appWhite
+        label.font = .systemFont(ofSize: 11, weight: .regular)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private lazy var addButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(
+            image: UIImage(systemName: "square.and.pencil"),
+            style: .plain,
+            target: self,
+            action: #selector(addButtonTapped)
+        )
+        button.tintColor = .appYellow
+        return button
+    }()
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -44,6 +64,7 @@ final class TasksViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .appBlack
         setupNavigationBar()
+        setupToolBar()
     }
     
     private func setupNavigationBar() {
@@ -59,6 +80,32 @@ final class TasksViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    private func setupToolBar() {
+        navigationController?.isToolbarHidden = false
+        
+        let appearance = UIToolbarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = .appGray
+        appearance.shadowColor = UIColor.white.withAlphaComponent(0.5)
+        navigationController?.toolbar.standardAppearance = appearance
+        navigationController?.toolbar.scrollEdgeAppearance = appearance
+        
+        let countItem = UIBarButtonItem(customView: toolBarLabel)
+        let flexibleSpace = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: nil,
+            action: nil
+        )
+        
+        toolbarItems = [flexibleSpace, countItem, flexibleSpace, addButton]
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func addButtonTapped() {
+        print("tap")
     }
 }
 
