@@ -96,13 +96,20 @@ final class TasksViewController: UIViewController {
     
     private func setupNavigationBar() {
         title = Constants.title
-        
+
         let titleAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.white
         ]
-        
-        navigationController?.navigationBar.largeTitleTextAttributes = titleAttributes
-        navigationController?.navigationBar.titleTextAttributes = titleAttributes
+
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .appBlack
+        appearance.titleTextAttributes = titleAttributes
+        appearance.largeTitleTextAttributes = titleAttributes
+        appearance.shadowColor = .clear
+
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.searchController = searchController
@@ -132,7 +139,6 @@ final class TasksViewController: UIViewController {
     // MARK: - Private Methods
     
     private func updateToolBarLabel() {
-        let count = todos.count
         toolBarLabel.text = StringHelper.taskCountText(todos.count)
     }
     
