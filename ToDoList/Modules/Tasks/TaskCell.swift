@@ -13,13 +13,13 @@ final class TaskCell: UITableViewCell {
     
     private enum Constants {
         static let checkboxSize: CGFloat = 24
-        static let checkboxBorderWidth: CGFloat = 1.5
+        static let checkboxBorderWidth: CGFloat = 1
         static let horizontalPadding: CGFloat = 20
         static let verticalPadding: CGFloat = 12
         static let spacing: CGFloat = 8
         static let stackSpacing: CGFloat = 6
         static let titleFontSize: CGFloat = 16
-        static let descriptionFontSize: CGFloat = 14
+        static let descriptionFontSize: CGFloat = 12
         static let dateFontSize: CGFloat = 12
         static let dateFormat = "dd/MM/yy"
     }
@@ -32,7 +32,7 @@ final class TaskCell: UITableViewCell {
         let button = UIButton()
         button.layer.cornerRadius = Constants.checkboxSize / 2
         button.layer.borderWidth = Constants.checkboxBorderWidth
-        button.layer.borderColor = UIColor.appYellow.cgColor
+        button.layer.borderColor = UIColor.appStroke.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -58,7 +58,7 @@ final class TaskCell: UITableViewCell {
     private var dateLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: Constants.dateFontSize, weight: .regular)
-        label.textColor = .appGray
+        label.textColor = .appWhite.withAlphaComponent(0.5)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -95,7 +95,7 @@ final class TaskCell: UITableViewCell {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             checkboxButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.horizontalPadding),
-            checkboxButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            checkboxButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.verticalPadding),
             checkboxButton.widthAnchor.constraint(equalToConstant: Constants.checkboxSize),
             checkboxButton.heightAnchor.constraint(equalToConstant: Constants.checkboxSize),
             
@@ -118,14 +118,14 @@ final class TaskCell: UITableViewCell {
     // MARK: - Private Methods
     
     private func setCompleted(_ isCompleted: Bool, title: String) {
-        checkboxButton.backgroundColor = isCompleted ? .appYellow : .clear
-        checkboxButton.setImage(isCompleted ? UIImage(systemName: "checkmark") : nil, for: .normal)
-        checkboxButton.tintColor = .appBlack
+        checkboxButton.layer.borderColor = isCompleted ? UIColor.appYellow.cgColor : UIColor.appStroke.cgColor
+        checkboxButton.setImage(isCompleted ? UIImage(resource: .appTick) : nil, for: .normal)
+        checkboxButton.tintColor = .appYellow
         
         if isCompleted {
             let attributes: [NSAttributedString.Key: Any] = [
                 .strikethroughStyle: NSUnderlineStyle.single.rawValue,
-                .foregroundColor: UIColor.appGray
+                .foregroundColor: UIColor.appWhite.withAlphaComponent(0.5)
             ]
             titleLabel.attributedText = NSAttributedString(string: title, attributes: attributes)
         } else {
@@ -133,7 +133,7 @@ final class TaskCell: UITableViewCell {
             titleLabel.text = title
         }
         
-        descriptionLabel.textColor = isCompleted ? .appGray : .appWhite
+        descriptionLabel.textColor = isCompleted ? .appWhite.withAlphaComponent(0.5) : .appWhite
     }
     
     private static let dateFormatter: DateFormatter = {
