@@ -24,6 +24,9 @@ final class TasksViewController: UIViewController {
     // MARK: - Properties
     
     var presenter: TasksPresenterProtocol!
+    private var todos: [ToDo] = MockData.todos
+    
+    // MARK: - UI Elements
     
     private lazy var searchController: UISearchController = {
         let search = UISearchController(searchResultsController: nil)
@@ -31,6 +34,18 @@ final class TasksViewController: UIViewController {
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = Constants.searchPlaceholder
         return search
+    }()
+    
+    private lazy var tableView: UITableView = {
+        let table = UITableView()
+        table.backgroundColor = .appBlack
+        table.separatorColor = .appGray
+        table.separatorInset = .zero
+        table.register(TaskCell.self, forCellReuseIdentifier: TaskCell.reuseIdentifier)
+        table.dataSource = self
+        table.delegate = self
+        table.translatesAutoresizingMaskIntoConstraints = false
+        return table
     }()
     
     private var toolBarLabel: UILabel = {
@@ -57,14 +72,25 @@ final class TasksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupConstraints()
     }
     
     // MARK: - Setup
     
     private func setupView() {
         view.backgroundColor = .appBlack
+        view.addSubview(tableView)
         setupNavigationBar()
         setupToolBar()
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     private func setupNavigationBar() {
@@ -102,12 +128,47 @@ final class TasksViewController: UIViewController {
         toolbarItems = [flexibleSpace, countItem, flexibleSpace, addButton]
     }
     
+    // MARK: - Private Methods
+    
+    private func updateToolBarLabel() {
+        let count = todos.count
+        toolBarLabel.text = count == 0 ? "Нет задач" : "\(count) Задач"
+    }
+    
     // MARK: - Actions
     
     @objc private func addButtonTapped() {
         print("tap")
     }
 }
+
+// MARK: - UITableViewDataSource
+
+extension TasksViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        todos.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: TaskCell.reuseIdentifier,
+            for: indexPath
+        ) as? TaskCell else {
+            return UITableViewCell()
+        }
+        cell.configure(with: todos[indexPath.row])
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension TasksViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
+
 
 // MARK: - UISearchResultsUpdating
 
