@@ -73,6 +73,7 @@ final class TasksViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
+        updateToolBarLabel()
     }
     
     // MARK: - Setup
@@ -168,7 +169,6 @@ extension TasksViewController: UITableViewDelegate {
         
     }
 }
-
 
 // MARK: - UISearchResultsUpdating
 

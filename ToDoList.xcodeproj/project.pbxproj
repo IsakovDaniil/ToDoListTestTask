@@ -15,28 +15,16 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				App/Info.plist,
-				Modules/Tasks/TaskCell.swift,
 			);
 			target = 86D101ED2F5F16D10051725C /* ToDoList */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		86C30B532F61C15100B7DB59 /* Exceptions for "ToDoList" folder in "Compile Sources" phase from "ToDoList" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 86D101EA2F5F16D10051725C /* Sources */;
-			membershipExceptions = (
-				Modules/Tasks/TaskCell.swift,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		86D101F02F5F16D10051725C /* ToDoList */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				86D102762F5F4D560051725C /* Exceptions for "ToDoList" folder in "ToDoList" target */,
-				86C30B532F61C15100B7DB59 /* Exceptions for "ToDoList" folder in "Compile Sources" phase from "ToDoList" target */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
