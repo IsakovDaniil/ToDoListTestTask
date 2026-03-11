@@ -42,6 +42,7 @@ final class TasksViewController: UIViewController {
         table.separatorColor = .appGray
         table.separatorInset = .zero
         table.register(TaskCell.self, forCellReuseIdentifier: TaskCell.reuseIdentifier)
+        table.tableHeaderView = UIView()
         table.dataSource = self
         table.delegate = self
         table.translatesAutoresizingMaskIntoConstraints = false
