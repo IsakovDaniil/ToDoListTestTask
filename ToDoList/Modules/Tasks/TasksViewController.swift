@@ -17,12 +17,21 @@ final class TasksViewController: UIViewController {
     
     private enum Constants {
         static let title = "Задачи"
+        static let searchPlaceholder = "Search"
     }
     
     // MARK: - Properties
     
     var presenter: TasksPresenterProtocol!
-
+    
+    private lazy var searchController: UISearchController = {
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = Constants.searchPlaceholder
+        return search
+    }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -48,9 +57,22 @@ final class TasksViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = titleAttributes
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
-
 }
+
+// MARK: - UISearchResultsUpdating
+
+extension TasksViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let query = searchController.searchBar.text else { return }
+        
+        print(query)
+    }
+}
+
+// MARK: - TasksViewProtocol
 
 extension TasksViewController: TasksViewProtocol {
     
