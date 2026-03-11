@@ -133,7 +133,7 @@ final class TasksViewController: UIViewController {
     
     private func updateToolBarLabel() {
         let count = todos.count
-        toolBarLabel.text = count == 0 ? "Нет задач" : "\(count) Задач"
+        toolBarLabel.text = StringHelper.taskCountText(todos.count)
     }
     
     // MARK: - Actions
