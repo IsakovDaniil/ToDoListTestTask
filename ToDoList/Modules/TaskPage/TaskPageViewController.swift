@@ -53,11 +53,21 @@ final class TaskPageViewController: UIViewController {
         return label
     }()
     
+    private lazy var headerStackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [titleTextField, dateLabel])
+        stack.axis = .vertical
+        stack.spacing = Constants.dateTopPadding
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
     private var descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.font = .systemFont(ofSize: Constants.descriptionFontSize, weight: .regular)
         textView.textColor = .appWhite
         textView.backgroundColor = .clear
+        textView.textContainerInset = .zero
+        textView.textContainer.lineFragmentPadding = .zero
         textView.isScrollEnabled = true
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
@@ -67,10 +77,9 @@ final class TaskPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigation()
         setupView()
         setupConstraints()
-        navigationController?.isToolbarHidden = true
-        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -82,28 +91,27 @@ final class TaskPageViewController: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .appBlack
-        view.addSubview(titleTextField)
-        view.addSubview(dateLabel)
+        view.addSubview(headerStackView)
         view.addSubview(descriptionTextView)
-        
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            titleTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.titleTopPadding),
-            titleTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.horizontalPadding),
-            titleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.horizontalPadding),
+            headerStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.titleTopPadding),
+            headerStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.horizontalPadding),
+            headerStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.horizontalPadding),
             
-            dateLabel.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: Constants.dateTopPadding),
-            dateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.horizontalPadding),
-            
-            descriptionTextView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: Constants.descriptionTopPadding),
+            descriptionTextView.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: Constants.descriptionTopPadding),
             descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.horizontalPadding),
             descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.horizontalPadding),
             descriptionTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
+    private func setupNavigation() {
+        navigationController?.isToolbarHidden = true
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
 }
 
 // MARK: - UITextFieldDelegate
