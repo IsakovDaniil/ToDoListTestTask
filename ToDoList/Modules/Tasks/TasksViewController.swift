@@ -97,7 +97,7 @@ final class TasksViewController: UIViewController {
     
     private func setupNavigationBar() {
         title = Constants.title
-
+        
         let titleAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.white
         ]
@@ -115,6 +115,8 @@ final class TasksViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .appYellow
     }
     
     private func setupToolBar() {
