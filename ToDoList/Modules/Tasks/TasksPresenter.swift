@@ -14,6 +14,8 @@ protocol TasksPresenterProtocol: AnyObject {
     func didTapComplete(todo: ToDo)
     func didTapShare(todo: ToDo)
     func didSearchTasks(query: String)
+    func didFetchTasks(_ todos: [ToDo])
+    func didFailWithError(_ message: String)
 }
 
 final class TasksPresenter {
