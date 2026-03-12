@@ -8,7 +8,9 @@
 import UIKit
 
 protocol TasksViewProtocol: AnyObject {
-    
+    func showTasks(_ todos: [ToDo])
+    func showError(_ message: String)
+    func updateTaskCount(_ count: Int)
 }
 
 final class TasksViewController: UIViewController {
@@ -73,6 +75,7 @@ final class TasksViewController: UIViewController {
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
+        presenter.viewDidLoad()
         super.viewDidLoad()
         setupView()
         setupConstraints()

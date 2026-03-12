@@ -24,7 +24,7 @@ final class ToDoStorage: ToDoStorageProtocol {
         context.perform {
             do {
                 let request = ToDoEntity.fetchRequest()
-                request.sortDescriptors = [NSSortDescriptor(key: "createdAT", ascending: false)]
+                request.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: false)]
                 let todos = try context.fetch(request).map { $0.toDomain() }
                 DispatchQueue.main.async { completion(.success(todos)) }
             } catch {

@@ -8,7 +8,12 @@
 import Foundation
 
 protocol TasksPresenterProtocol: AnyObject {
-    
+    func viewDidLoad()
+    func didTapAdd()
+    func didTapDelete(todo: ToDo)
+    func didTapComplete(todo: ToDo)
+    func didTapShare(todo: ToDo)
+    func didSearchTasks(query: String)
 }
 
 final class TasksPresenter {
@@ -24,5 +29,7 @@ final class TasksPresenter {
 }
 
 extension TasksPresenter: TasksPresenterProtocol {
-    
+    func viewDidLoad() {
+        
+    }
 }

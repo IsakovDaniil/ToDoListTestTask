@@ -8,7 +8,10 @@
 import Foundation
 
 protocol TasksInteractorProtocol: AnyObject {
-    
+    func fetchTasks()
+    func searchTasks(query: String)
+    func deleteTask(id: Int)
+    func toggleComplete(todo: ToDo)
 }
 
 final class TasksInteractor {
