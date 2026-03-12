@@ -21,7 +21,6 @@ final class TaskCell: UITableViewCell {
         static let titleFontSize: CGFloat = 16
         static let descriptionFontSize: CGFloat = 12
         static let dateFontSize: CGFloat = 12
-        static let dateFormat = "dd/MM/yy"
     }
     
     static let reuseIdentifier = String(describing: TaskCell.self)
@@ -111,7 +110,7 @@ final class TaskCell: UITableViewCell {
     func configure(with todo: ToDo) {
         titleLabel.text = todo.title
         descriptionLabel.text = todo.taskDescription
-        dateLabel.text = formatDate(todo.createdAt)
+        dateLabel.text = DateHelper.format(todo.createdAt)
         setCompleted(todo.isCompleted, title: todo.title)
     }
     
@@ -135,15 +134,4 @@ final class TaskCell: UITableViewCell {
         
         descriptionLabel.textColor = isCompleted ? .appWhite.withAlphaComponent(0.5) : .appWhite
     }
-    
-    private static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = Constants.dateFormat
-        return formatter
-    }()
-    
-    private func formatDate(_ date: Date) -> String {
-        TaskCell.dateFormatter.string(from: date)
-    }
-    
 }
