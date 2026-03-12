@@ -30,6 +30,11 @@ final class TaskPageViewController: UIViewController {
         navigationController?.isToolbarHidden = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isToolbarHidden = false
+    }
+    
     // MARK: - Setup
     
     private func setupView() {
