@@ -16,7 +16,7 @@ final class TaskPageViewController: UIViewController {
     // MARK: - Constants
     
     enum Constants {
-        static let backButtonTitle = "Назад"
+        
     }
     
     // MARK: - Properties
@@ -27,7 +27,7 @@ final class TaskPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.isToolbarHidden = true
     }
     
     // MARK: - Setup
@@ -38,9 +38,6 @@ final class TaskPageViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        setupNavigationBarAppearance()
-        navigationItem.largeTitleDisplayMode = .never
-        navigationItem.backButtonTitle = "Назад"
     }
     
 }

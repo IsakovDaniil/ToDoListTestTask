@@ -21,4 +21,3 @@ extension UIViewController {
         navigationController?.navigationBar.tintColor = .appYellow
     }
 }
-

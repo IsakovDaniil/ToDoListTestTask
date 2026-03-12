@@ -19,6 +19,7 @@ final class TasksViewController: UIViewController {
         static let title = "Задачи"
         static let searchPlaceholder = "Search"
         static let toolBarLabel = "Нет задач"
+        static let backButtonTitle = "Назад"
     }
     
     // MARK: - Properties
@@ -103,7 +104,7 @@ final class TasksViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        navigationItem.backButtonTitle = ""
+        navigationItem.backButtonTitle = Constants.backButtonTitle
     }
     
     private func setupToolBar() {
@@ -136,6 +137,8 @@ final class TasksViewController: UIViewController {
     
     @objc private func addButtonTapped() {
         print("tap")
+        let taskPage = TaskPageModuleBuilder.build()
+        navigationController?.pushViewController(taskPage, animated: true)
     }
 }
 
@@ -145,7 +148,7 @@ extension TasksViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         todos.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: TaskCell.reuseIdentifier,
