@@ -43,6 +43,7 @@ final class TasksViewController: UIViewController {
         table.separatorInset = .zero
         table.register(TaskCell.self, forCellReuseIdentifier: TaskCell.reuseIdentifier)
         table.tableHeaderView = UIView()
+        table.showsVerticalScrollIndicator = false
         table.dataSource = self
         table.delegate = self
         table.translatesAutoresizingMaskIntoConstraints = false
