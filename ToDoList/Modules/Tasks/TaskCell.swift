@@ -82,6 +82,15 @@ final class TaskCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleLabel.attributedText = nil
+        titleLabel.text = nil
+        checkboxButton.layer.borderColor = UIColor.appStroke.cgColor
+        checkboxButton.setImage(nil, for: .normal)
+        descriptionLabel.textColor = .appWhite
+    }
+    
     // MARK: - Setup
     
     private func setupView() {
