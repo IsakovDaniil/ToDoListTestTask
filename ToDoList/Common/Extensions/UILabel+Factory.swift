@@ -13,6 +13,7 @@ extension UILabel {
         label.font = AppFont.medium16
         label.textColor = .appWhite
         label.numberOfLines = 1
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
 
@@ -21,6 +22,7 @@ extension UILabel {
         label.font = AppFont.regular12
         label.textColor = .appWhite
         label.numberOfLines = 2
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
 
@@ -28,6 +30,7 @@ extension UILabel {
         let label = UILabel()
         label.font = AppFont.regular12
         label.textColor = .appWhiteOpacity
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
 }

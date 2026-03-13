@@ -24,7 +24,7 @@ class TaskPreviewViewController: UIViewController {
     
     private var titleLabel = UILabel.taskTitleLabel()
     private var descriptionLabel = UILabel.taskDescriptionLabel()
-    private var dateLabel = UILabel.taskDescriptionLabel()
+    private var dateLabel = UILabel.taskDateLabel()
     private lazy var textStackView = UIStackView.taskTextStackView(with: [titleLabel, descriptionLabel, dateLabel])
     
     // MARK: - Init
@@ -45,6 +45,14 @@ class TaskPreviewViewController: UIViewController {
         configure()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        preferredContentSize = CGSize(
+            width: UIScreen.main.bounds.width - 40,
+            height: view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        )
+    }
+    
     // MARK: - Setup
     
     private func setupView() {
@@ -59,11 +67,6 @@ class TaskPreviewViewController: UIViewController {
             textStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.horizontalPadding),
             textStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.verticalPadding)
         ])
-        
-        preferredContentSize = CGSize(
-            width: UIScreen.main.bounds.width - Constants.horizontalPadding * 2,
-            height: view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
-        )
     }
     
     // MARK: - Configure
