@@ -11,4 +11,3 @@ enum TaskPageMode {
     case create
     case edit(ToDo)
 }
-

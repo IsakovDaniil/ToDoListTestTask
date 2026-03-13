@@ -26,8 +26,8 @@ final class TasksViewController: UIViewController {
     
     // MARK: - Properties
     
-    var presenter: TasksPresenterProtocol!
-    private var todos: [ToDo] = MockData.todos
+    var presenter: TasksPresenterProtocol?
+    private var todos: [ToDo] = []
     
     // MARK: - UI Elements
     
@@ -75,11 +75,10 @@ final class TasksViewController: UIViewController {
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
-        presenter.viewDidLoad()
         super.viewDidLoad()
         setupView()
         setupConstraints()
-        updateToolBarLabel()
+        presenter?.viewDidLoad()
     }
     
     // MARK: - Setup
@@ -130,18 +129,10 @@ final class TasksViewController: UIViewController {
         toolbarItems = [flexibleSpace, countItem, flexibleSpace, addButton]
     }
     
-    // MARK: - Private Methods
-    
-    private func updateToolBarLabel() {
-        toolBarLabel.text = StringHelper.taskCountText(todos.count)
-    }
-    
     // MARK: - Actions
     
     @objc private func addButtonTapped() {
-        print("tap")
-        let taskPage = TaskPageModuleBuilder.build()
-        navigationController?.pushViewController(taskPage, animated: true)
+        presenter?.didTapAdd()
     }
 }
 
@@ -168,7 +159,7 @@ extension TasksViewController: UITableViewDataSource {
 
 extension TasksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        presenter?.didTapTask(todo: todos[indexPath.row])
     }
 }
 
@@ -177,13 +168,25 @@ extension TasksViewController: UITableViewDelegate {
 extension TasksViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let query = searchController.searchBar.text else { return }
-        
-        print(query)
+        presenter?.didSearchTasks(query: query)
     }
 }
 
 // MARK: - TasksViewProtocol
 
 extension TasksViewController: TasksViewProtocol {
+    func showTasks(_ todos: [ToDo]) {
+        self.todos = todos
+        tableView.reloadData()
+    }
     
+    func showError(_ message: String) {
+        let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+    
+    func updateTaskCount(_ count: Int) {
+        toolBarLabel.text = StringHelper.taskCountText(count)
+    }
 }
