@@ -24,6 +24,10 @@ final class TaskCell: UITableViewCell {
     
     // MARK: - UI Elements
     
+    private var titleLabel = UILabel.taskTitleLabel()
+    private var descriptionLabel = UILabel.taskDescriptionLabel()
+    private var dateLabel = UILabel.taskDescriptionLabel()
+    
     private lazy var checkboxButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = Constants.checkboxSize / 2
@@ -33,12 +37,6 @@ final class TaskCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    private var titleLabel = UILabel.taskTitleLabel()
-    
-    private var descriptionLabel = UILabel.taskDescriptionLabel()
-    
-    private var dateLabel = UILabel.taskDescriptionLabel()
     
     private lazy var textStackView: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel, dateLabel])
