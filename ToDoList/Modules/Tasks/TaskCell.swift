@@ -14,7 +14,6 @@ final class TaskCell: UITableViewCell {
     private enum Constants {
         static let checkboxSize: CGFloat = 24
         static let checkboxBorderWidth: CGFloat = 1
-        static let horizontalPadding: CGFloat = 20
         static let verticalPadding: CGFloat = 12
         static let spacing: CGFloat = 8
         static let stackSpacing: CGFloat = 6
@@ -104,13 +103,13 @@ final class TaskCell: UITableViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            checkboxButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.horizontalPadding),
+            checkboxButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             checkboxButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.verticalPadding),
             checkboxButton.widthAnchor.constraint(equalToConstant: Constants.checkboxSize),
             checkboxButton.heightAnchor.constraint(equalToConstant: Constants.checkboxSize),
             
             textStackView.leadingAnchor.constraint(equalTo: checkboxButton.trailingAnchor, constant: Constants.spacing),
-            textStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.horizontalPadding),
+            textStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             textStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.verticalPadding),
             textStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.verticalPadding)
         ])

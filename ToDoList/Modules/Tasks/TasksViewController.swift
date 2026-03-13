@@ -22,6 +22,7 @@ final class TasksViewController: UIViewController {
         static let searchPlaceholder = "Search"
         static let toolBarLabel = "Нет задач"
         static let backButtonTitle = "Назад"
+        static let horizontalPadding: CGFloat = 20
     }
     
     // MARK: - Properties
@@ -93,8 +94,8 @@ final class TasksViewController: UIViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.horizontalPadding),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.horizontalPadding),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
