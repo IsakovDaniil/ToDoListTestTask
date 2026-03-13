@@ -27,5 +27,22 @@ final class TaskPagePresenter {
 }
 
 extension TaskPagePresenter: TaskPagePresenterProtocol {
+    func viewDidLoad() {
+        if case .edit(let todo) = mode {
+            view?.configure(with: todo)
+        }
+    }
+    
+    func viewWillDisappear(title: String, description: String) {
+        guard !title.isEmpty else { return }
+        
+        switch mode {
+        case .create:
+            interactor.addTask(title: title, description: description)
+        case .edit(let todo):
+            interactor.updateTask(todo: todo, title: title, description: description)
+        }
+    }
+    
     
 }
