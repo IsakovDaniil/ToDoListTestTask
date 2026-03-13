@@ -8,16 +8,16 @@
 import UIKit
 
 final class TaskPageModuleBuilder {
-    static func build() -> TaskPageViewController {
+    static func build(mode: TaskPageMode) -> TaskPageViewController {
         let interactor = TaskPageInteractor()
         let router = TaskPageRouter()
-        let presenter = TaskPagePresenter(interactor: interactor, router: router)
+        let presenter = TaskPagePresenter(interactor: interactor, router: router, mode: mode)
         let viewController = TaskPageViewController()
         
         viewController.presenter = presenter
         presenter.view = viewController
         interactor.presenter = presenter
-        router.presenter = presenter
+        router.viewController = viewController
         
         return viewController
         

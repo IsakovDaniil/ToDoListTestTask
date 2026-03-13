@@ -28,7 +28,6 @@ final class TasksPresenter {
         self.interactor = interactor
         self.router = router
     }
-    
 }
 
 extension TasksPresenter: TasksPresenterProtocol {

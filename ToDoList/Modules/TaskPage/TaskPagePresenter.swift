@@ -15,10 +15,12 @@ final class TaskPagePresenter {
     weak var view: TaskPageViewProtocol?
     var router: TaskPageRouterProtocol
     var interactor: TaskPageInteractorProtocol
+    let mode: TaskPageMode
     
-    init(interactor: TaskPageInteractorProtocol, router: TaskPageRouterProtocol) {
+    init(interactor: TaskPageInteractorProtocol, router: TaskPageRouterProtocol, mode: TaskPageMode) {
         self.interactor = interactor
         self.router = router
+        self.mode = mode
     }
     
 }
