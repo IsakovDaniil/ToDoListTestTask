@@ -14,6 +14,7 @@ class TaskPreviewViewController: UIViewController {
     private enum Constants {
         static let horizontalPadding: CGFloat = 16
         static let verticalPadding: CGFloat = 12
+        static let boundsWidth: CGFloat = 40
     }
     
     // MARK: - Properties
@@ -48,7 +49,7 @@ class TaskPreviewViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         preferredContentSize = CGSize(
-            width: UIScreen.main.bounds.width - 40,
+            width: UIScreen.main.bounds.width - Constants.boundsWidth,
             height: view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         )
     }

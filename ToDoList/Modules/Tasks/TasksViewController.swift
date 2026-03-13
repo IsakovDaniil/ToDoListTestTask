@@ -59,6 +59,9 @@ final class TasksViewController: UIViewController {
         label.text = "Нет задач"
         label.textColor = .appWhite
         label.font = AppFont.regular11
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         label.textAlignment = .center
         return label
     }()
@@ -121,6 +124,7 @@ final class TasksViewController: UIViewController {
         navigationController?.toolbar.scrollEdgeAppearance = appearance
         
         let countItem = UIBarButtonItem(customView: toolBarLabel)
+        
         let flexibleSpace = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
             target: nil,
