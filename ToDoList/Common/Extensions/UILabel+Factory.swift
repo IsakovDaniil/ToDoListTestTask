@@ -27,7 +27,7 @@ extension UILabel {
     static func taskDateLabel() -> UILabel {
         let label = UILabel()
         label.font = AppFont.regular12
-        label.textColor = .appWhite.withAlphaComponent(0.5)
+        label.textColor = .appWhiteOpacity
         return label
     }
 }

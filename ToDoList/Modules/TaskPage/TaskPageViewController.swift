@@ -44,7 +44,7 @@ final class TaskPageViewController: UIViewController {
     private var dateLabel: UILabel = {
         let label = UILabel()
         label.font = AppFont.regular12
-        label.textColor = .appWhite.withAlphaComponent(0.5)
+        label.textColor = .appWhiteOpacity
         label.text = DateHelper.format(Date())
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

@@ -102,7 +102,7 @@ final class TaskCell: UITableViewCell {
         if isCompleted {
             let attributes: [NSAttributedString.Key: Any] = [
                 .strikethroughStyle: NSUnderlineStyle.single.rawValue,
-                .foregroundColor: UIColor.appWhite.withAlphaComponent(0.5)
+                .foregroundColor: UIColor.appWhiteOpacity
             ]
             titleLabel.attributedText = NSAttributedString(string: title, attributes: attributes)
         } else {
@@ -110,7 +110,7 @@ final class TaskCell: UITableViewCell {
             titleLabel.text = title
         }
         
-        descriptionLabel.textColor = isCompleted ? .appWhite.withAlphaComponent(0.5) : .appWhite
+        descriptionLabel.textColor = isCompleted ? .appWhiteOpacity : .appWhite
     }
     
     // MARK: - Action
