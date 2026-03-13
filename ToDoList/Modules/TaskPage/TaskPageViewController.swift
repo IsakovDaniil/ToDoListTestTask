@@ -80,11 +80,16 @@ final class TaskPageViewController: UIViewController {
         setupNavigation()
         setupView()
         setupConstraints()
+        presenter?.viewDidLoad()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.isToolbarHidden = false
+        presenter?.viewWillDisappear(
+            title: titleTextField.text ?? "",
+            description: descriptionTextView.text ?? ""
+        )
     }
     
     // MARK: - Setup
@@ -125,5 +130,9 @@ extension TaskPageViewController: UITextFieldDelegate {
 }
 
 extension TaskPageViewController: TaskPageViewProtocol {
-    
+    func configure(with todo: ToDo) {
+        titleTextField.text = todo.title
+        descriptionTextView.text = todo.taskDescription
+        dateLabel.text = DateHelper.format(todo.createdAt)
+    }
 }
