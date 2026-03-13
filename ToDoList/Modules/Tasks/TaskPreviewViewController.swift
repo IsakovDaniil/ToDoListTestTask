@@ -24,14 +24,7 @@ class TaskPreviewViewController: UIViewController {
     private var titleLabel = UILabel.taskTitleLabel()
     private var descriptionLabel = UILabel.taskDescriptionLabel()
     private var dateLabel = UILabel.taskDescriptionLabel()
-    
-    private lazy var textStackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel, dateLabel])
-        stack.axis = .vertical
-        stack.spacing = 6
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
+    private lazy var textStackView = UIStackView.taskTextStackView(with: [titleLabel, descriptionLabel, dateLabel])
     
     // MARK: - Init
     
