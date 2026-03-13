@@ -24,14 +24,16 @@ final class TaskCell: UITableViewCell {
     }
     
     static let reuseIdentifier = String(describing: TaskCell.self)
+    var onToggleComplete: (() -> Void)?
     
     // MARK: - UI Elements
     
-    private var checkboxButton: UIButton = {
+    private lazy var checkboxButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = Constants.checkboxSize / 2
         button.layer.borderWidth = Constants.checkboxBorderWidth
         button.layer.borderColor = UIColor.appStroke.cgColor
+        button.addTarget(self, action: #selector(checkboxTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -142,5 +144,11 @@ final class TaskCell: UITableViewCell {
         }
         
         descriptionLabel.textColor = isCompleted ? .appWhite.withAlphaComponent(0.5) : .appWhite
+    }
+    
+    // MARK: - Action
+    
+    @objc private func checkboxTapped() {
+        onToggleComplete?()
     }
 }

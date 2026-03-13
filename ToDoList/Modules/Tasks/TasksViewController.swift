@@ -151,6 +151,11 @@ extension TasksViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.configure(with: todos[indexPath.row])
+        cell.onToggleComplete = { [weak self] in
+            guard let self else { return }
+            
+            self.presenter?.didTapComplete(todo: self.todos[indexPath.row])
+        }
         return cell
     }
 }
