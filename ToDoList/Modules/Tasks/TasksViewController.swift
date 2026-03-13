@@ -22,7 +22,6 @@ final class TasksViewController: UIViewController {
         static let searchPlaceholder = "Search"
         static let toolBarLabel = "Нет задач"
         static let backButtonTitle = "Назад"
-        static let horizontalPadding: CGFloat = 20
     }
     
     // MARK: - Properties
@@ -44,7 +43,7 @@ final class TasksViewController: UIViewController {
         let table = UITableView()
         table.backgroundColor = .appBlack
         table.separatorColor = .appGray
-        table.separatorInset = .zero
+        table.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         table.register(TaskCell.self, forCellReuseIdentifier: TaskCell.reuseIdentifier)
         table.tableHeaderView = UIView()
         table.showsVerticalScrollIndicator = false
@@ -102,8 +101,8 @@ final class TasksViewController: UIViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.horizontalPadding),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.horizontalPadding),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
