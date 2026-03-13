@@ -44,5 +44,4 @@ extension TaskPagePresenter: TaskPagePresenterProtocol {
         }
     }
     
-    
 }

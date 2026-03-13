@@ -167,6 +167,33 @@ extension TasksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter?.didTapTask(todo: todos[indexPath.row])
     }
+    
+    func tableView(_ tableView: UITableView,
+                   contextMenuConfigurationForRowAt indexPath: IndexPath,
+                   point: CGPoint) -> UIContextMenuConfiguration? {
+
+        let todo = todos[indexPath.row]
+
+        return UIContextMenuConfiguration(
+            identifier: indexPath as NSIndexPath,
+            previewProvider: {
+                let preview = TaskPreviewViewController(todo: todo)
+                return preview
+            },
+            actionProvider: { _ in
+                let edit = UIAction(title: "Редактировать", image: UIImage(resource: .appEdit)) { [weak self] _ in
+                    self?.presenter?.didTapTask(todo: todo)
+                }
+                let share = UIAction(title: "Поделиться", image: UIImage(resource: .appExport)) { [weak self] _ in
+                    self?.presenter?.didTapShare(todo: todo)
+                }
+                let delete = UIAction(title: "Удалить", image: UIImage(resource: .appTrash), attributes: .destructive) { [weak self] _ in
+                    self?.presenter?.didTapDelete(todo: todo)
+                }
+                return UIMenu(title: "", children: [edit, share, delete])
+            }
+        )
+    }
 }
 
 // MARK: - UISearchResultsUpdating
