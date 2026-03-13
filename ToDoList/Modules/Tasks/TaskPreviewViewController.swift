@@ -21,26 +21,9 @@ class TaskPreviewViewController: UIViewController {
     
     // MARK: - UIElements
     
-    private var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = AppFont.medium16
-        label.textColor = .appWhite
-        return label
-    }()
-    
-    private var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = AppFont.regular12
-        label.textColor = .appWhite
-        return label
-    }()
-    
-    private var dateLabel: UILabel = {
-        let label = UILabel()
-        label.font = AppFont.regular12
-        label.textColor = .appWhite.withAlphaComponent(0.5)
-        return label
-    }()
+    private var titleLabel = UILabel.taskTitleLabel()
+    private var descriptionLabel = UILabel.taskDescriptionLabel()
+    private var dateLabel = UILabel.taskDescriptionLabel()
     
     private lazy var textStackView: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel, dateLabel])
