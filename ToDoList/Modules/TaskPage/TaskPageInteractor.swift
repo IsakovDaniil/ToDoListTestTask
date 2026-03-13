@@ -14,8 +14,31 @@ protocol TaskPageInteractorProtocol: AnyObject {
 
 final class TaskPageInteractor {
     weak var presenter: TaskPagePresenterProtocol?
+    private let storage: ToDoStorageProtocol
+    
+    init(storage: ToDoStorageProtocol = ToDoStorage()) {
+        self.storage = storage
+    }
 }
 
 extension TaskPageInteractor: TaskPageInteractorProtocol {
+    
+    func addTask(title: String, description: String) {
+        let todo = ToDo(
+            id: UUID().hashValue,
+            title: title,
+            taskDescription: description,
+            isCompleted: false,
+            createdAt: Date()
+        )
+        storage.add(todo: todo) { _ in }
+    }
+    
+    func updateTask(todo: ToDo, title: String, description: String) {
+        var updated = todo
+        updated.title = title
+        updated.taskDescription = description
+        storage.update(todo: updated) { _ in }
+    }
     
 }
