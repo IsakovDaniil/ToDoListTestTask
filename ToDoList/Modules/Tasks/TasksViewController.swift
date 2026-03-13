@@ -85,6 +85,11 @@ final class TasksViewController: UIViewController {
         presenter?.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewDidLoad()
+    }
+    
     // MARK: - Setup
     
     private func setupView() {
