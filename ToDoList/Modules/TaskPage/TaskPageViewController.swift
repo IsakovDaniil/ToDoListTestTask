@@ -18,9 +18,6 @@ final class TaskPageViewController: UIViewController {
     private enum Constants {
         static let TextFieldPlaceholder = "Название"
         static let horizontalPadding: CGFloat = 20
-        static let titleFontSize: CGFloat = 34
-        static let dateFontSize: CGFloat = 12
-        static let descriptionFontSize: CGFloat = 16
         static let titleTopPadding: CGFloat = 8
         static let dateTopPadding: CGFloat = 8
         static let descriptionTopPadding: CGFloat = 16
@@ -34,7 +31,7 @@ final class TaskPageViewController: UIViewController {
     
     private lazy var titleTextField: UITextField = {
         let textField = UITextField()
-        textField.font = .systemFont(ofSize: Constants.titleFontSize, weight: .bold)
+        textField.font = AppFont.bold34
         textField.textColor = .appWhite
         textField.placeholder = Constants.TextFieldPlaceholder
         textField.borderStyle = .none
@@ -46,7 +43,7 @@ final class TaskPageViewController: UIViewController {
     
     private var dateLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: Constants.dateFontSize, weight: .regular)
+        label.font = AppFont.regular12
         label.textColor = .appWhite.withAlphaComponent(0.5)
         label.text = DateHelper.format(Date())
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +60,7 @@ final class TaskPageViewController: UIViewController {
     
     private var descriptionTextView: UITextView = {
         let textView = UITextView()
-        textView.font = .systemFont(ofSize: Constants.descriptionFontSize, weight: .regular)
+        textView.font = AppFont.regular16
         textView.textColor = .appWhite
         textView.backgroundColor = .clear
         textView.textContainerInset = .zero

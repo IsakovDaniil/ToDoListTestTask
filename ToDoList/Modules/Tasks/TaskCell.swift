@@ -17,9 +17,6 @@ final class TaskCell: UITableViewCell {
         static let verticalPadding: CGFloat = 12
         static let spacing: CGFloat = 8
         static let stackSpacing: CGFloat = 6
-        static let titleFontSize: CGFloat = 16
-        static let descriptionFontSize: CGFloat = 12
-        static let dateFontSize: CGFloat = 12
     }
     
     static let reuseIdentifier = String(describing: TaskCell.self)
@@ -39,7 +36,7 @@ final class TaskCell: UITableViewCell {
     
     private var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: Constants.titleFontSize, weight: .medium)
+        label.font = AppFont.medium16
         label.textColor = .appWhite
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +45,7 @@ final class TaskCell: UITableViewCell {
     
     private var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: Constants.descriptionFontSize, weight: .regular)
+        label.font = AppFont.regular12
         label.textColor = .appWhite
         label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -57,7 +54,7 @@ final class TaskCell: UITableViewCell {
     
     private var dateLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: Constants.dateFontSize, weight: .regular)
+        label.font = AppFont.regular12
         label.textColor = .appWhite.withAlphaComponent(0.5)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

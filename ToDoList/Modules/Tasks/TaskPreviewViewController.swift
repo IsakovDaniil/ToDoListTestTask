@@ -23,21 +23,21 @@ class TaskPreviewViewController: UIViewController {
     
     private var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.font = AppFont.medium16
         label.textColor = .appWhite
         return label
     }()
     
     private var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .regular)
+        label.font = AppFont.regular12
         label.textColor = .appWhite
         return label
     }()
     
     private var dateLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .regular)
+        label.font = AppFont.regular12
         label.textColor = .appWhite.withAlphaComponent(0.5)
         return label
     }()

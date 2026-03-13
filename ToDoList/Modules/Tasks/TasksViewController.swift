@@ -58,7 +58,7 @@ final class TasksViewController: UIViewController {
         let label = UILabel()
         label.text = "Нет задач"
         label.textColor = .appWhite
-        label.font = .systemFont(ofSize: 11, weight: .regular)
+        label.font = AppFont.regular11
         label.textAlignment = .center
         return label
     }()
