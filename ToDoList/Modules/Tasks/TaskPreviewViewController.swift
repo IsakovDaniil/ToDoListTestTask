@@ -12,7 +12,8 @@ class TaskPreviewViewController: UIViewController {
     // MARK: - Constants
     
     private enum Constants {
-        
+        static let horizontalPadding: CGFloat = 16
+        static let verticalPadding: CGFloat = 12
     }
     
     // MARK: - Properties
@@ -53,14 +54,14 @@ class TaskPreviewViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            textStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 12),
-            textStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            textStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            textStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -12)
+            textStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.verticalPadding),
+            textStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.horizontalPadding),
+            textStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.horizontalPadding),
+            textStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.verticalPadding)
         ])
         
         preferredContentSize = CGSize(
-            width: UIScreen.main.bounds.width - 40,
+            width: UIScreen.main.bounds.width - Constants.horizontalPadding * 2,
             height: view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         )
     }
