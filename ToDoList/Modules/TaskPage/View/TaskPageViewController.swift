@@ -7,9 +7,7 @@
 
 import UIKit
 
-protocol TaskPageViewProtocol: AnyObject {
-    func configure(with todo: ToDo)
-}
+
 
 final class TaskPageViewController: UIViewController {
     

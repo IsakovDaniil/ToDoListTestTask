@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol TaskPagePresenterProtocol: AnyObject {
-    func viewDidLoad()
-    func viewWillDisappear(title: String, description: String)
-}
-
 final class TaskPagePresenter {
     weak var view: TaskPageViewProtocol?
     var router: TaskPageRouterProtocol

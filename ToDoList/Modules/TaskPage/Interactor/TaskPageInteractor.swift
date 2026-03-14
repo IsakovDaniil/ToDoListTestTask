@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol TaskPageInteractorProtocol: AnyObject {
-    func addTask(title: String, description: String)
-    func updateTask(todo: ToDo, title: String, description: String)
-}
-
 final class TaskPageInteractor {
     weak var presenter: TaskPagePresenterProtocol?
     private let storage: ToDoStorageProtocol

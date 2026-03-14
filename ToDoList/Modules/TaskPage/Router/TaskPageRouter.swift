@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol TaskPageRouterProtocol: AnyObject {
-    func dismiss()
-}
-
 final class TaskPageRouter: TaskPageRouterProtocol {
     weak var viewController: UIViewController?
     
