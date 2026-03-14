@@ -51,7 +51,10 @@ extension TasksPresenter: TasksPresenterProtocol {
     }
     
     func didTapComplete(todo: ToDo) {
-        interactor.toggleComplete(todo: todo)
+        var updated = todo
+        updated.isCompleted.toggle()
+        view?.updateTask(updated)
+        interactor.toggleComplete(todo: updated)
     }
     
     func didTapShare(todo: ToDo) {

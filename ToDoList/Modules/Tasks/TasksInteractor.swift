@@ -66,7 +66,7 @@ extension TasksInteractor: TasksInteractorProtocol {
         storage.delete(id: id) { [weak self] result in
             switch result {
             case .success:
-                self?.loadFromNetwork()
+                self?.loadFromStorage()
             case .failure(let error):
                 self?.presenter?.didFailWithError(error.localizedDescription)
             }
@@ -76,16 +76,7 @@ extension TasksInteractor: TasksInteractorProtocol {
     // MARK: - Toggle Complete
     
     func toggleComplete(todo: ToDo) {
-        var updated = todo
-        updated.isCompleted.toggle()
-        storage.update(todo: updated) { [weak self] result in
-            switch result {
-            case .success:
-                self?.loadFromStorage()
-            case .failure(let error):
-                self?.presenter?.didFailWithError(error.localizedDescription)
-            }
-        }
+        storage.update(todo: todo) { _ in }
     }
     
     // MARK: - Private

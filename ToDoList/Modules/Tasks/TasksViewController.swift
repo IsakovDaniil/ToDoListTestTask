@@ -11,6 +11,7 @@ protocol TasksViewProtocol: AnyObject {
     func showTasks(_ todos: [ToDo])
     func showError(_ message: String)
     func updateTaskCount(_ count: Int)
+    func updateTask(_ todo: ToDo)
 }
 
 final class TasksViewController: UIViewController {
@@ -81,11 +82,6 @@ final class TasksViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
-        presenter?.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         presenter?.viewDidLoad()
     }
     
@@ -179,9 +175,9 @@ extension TasksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    contextMenuConfigurationForRowAt indexPath: IndexPath,
                    point: CGPoint) -> UIContextMenuConfiguration? {
-
+        
         let todo = todos[indexPath.row]
-
+        
         return UIContextMenuConfiguration(
             identifier: indexPath as NSIndexPath,
             previewProvider: {
@@ -229,5 +225,11 @@ extension TasksViewController: TasksViewProtocol {
     
     func updateTaskCount(_ count: Int) {
         toolBarLabel.text = StringHelper.taskCountText(count)
+    }
+    
+    func updateTask(_ todo: ToDo) {
+        guard let index = todos.firstIndex(where: { $0.id == todo.id }) else { return }
+        todos[index] = todo
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
     }
 }
