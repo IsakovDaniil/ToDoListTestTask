@@ -175,7 +175,7 @@ extension TasksViewController: UITableViewDataSource {
 
 extension TasksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.didTapTask(todo: todos[indexPath.row])
+        presenter?.didTapComplete(todo: todos[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView,
