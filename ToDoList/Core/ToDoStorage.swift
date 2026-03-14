@@ -77,7 +77,7 @@ final class ToDoStorage: ToDoStorageProtocol {
         let context = stack.newBackgroundContext()
         context.perform {
             let request = ToDoEntity.fetchRequest()
-            request.predicate = NSPredicate(format: "id == %d", todo.id)
+            request.predicate = NSPredicate(format: "id == %lld", Int64(todo.id))
             request.fetchLimit = 1
             do {
                 guard let entity = try context.fetch(request).first else {
@@ -101,7 +101,7 @@ final class ToDoStorage: ToDoStorageProtocol {
         let context = stack.newBackgroundContext()
         context.perform {
             let request = ToDoEntity.fetchRequest()
-            request.predicate = NSPredicate(format: "id == %d", id)
+            request.predicate = NSPredicate(format: "id == %lld", Int64(id))
             request.fetchLimit = 1
             do {
                 guard let entity = try context.fetch(request).first else {

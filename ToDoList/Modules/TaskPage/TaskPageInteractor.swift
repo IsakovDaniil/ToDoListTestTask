@@ -25,7 +25,7 @@ extension TaskPageInteractor: TaskPageInteractorProtocol {
     
     func addTask(title: String, description: String) {
         let todo = ToDo(
-            id: UUID().hashValue,
+            id: abs(UUID().hashValue),
             title: title,
             taskDescription: description,
             isCompleted: false,
