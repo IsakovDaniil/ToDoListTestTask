@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol TasksRouterProtocol: AnyObject {
-    func showTaskPage(mode: TaskPageMode)
-    func showShareSheet(text: String)
-}
-
 final class TasksRouter: TasksRouterProtocol {
     
     weak var viewController: UIViewController?

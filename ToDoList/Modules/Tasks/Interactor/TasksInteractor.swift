@@ -7,14 +7,6 @@
 
 import Foundation
 
-protocol TasksInteractorProtocol: AnyObject {
-    func fetchTasks()
-    func searchTasks(query: String)
-    func deleteTask(id: Int)
-    func reloadTasks()
-    func toggleComplete(todo: ToDo)
-}
-
 final class TasksInteractor {
     weak var presenter: TasksPresenterProtocol?
     

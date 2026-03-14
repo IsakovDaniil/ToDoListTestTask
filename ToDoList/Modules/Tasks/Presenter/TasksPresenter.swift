@@ -7,19 +7,6 @@
 
 import Foundation
 
-protocol TasksPresenterProtocol: AnyObject {
-    func viewDidLoad()
-    func viewDidAppear()
-    func didTapAdd()
-    func didTapTask(todo: ToDo)
-    func didTapDelete(todo: ToDo)
-    func didTapComplete(todo: ToDo)
-    func didTapShare(todo: ToDo)
-    func didSearchTasks(query: String)
-    func didFetchTasks(_ todos: [ToDo])
-    func didFailWithError(_ message: String)
-}
-
 final class TasksPresenter {
     weak var view: TasksViewProtocol?
     var router: TasksRouterProtocol

@@ -7,13 +7,6 @@
 
 import UIKit
 
-protocol TasksViewProtocol: AnyObject {
-    func showTasks(_ todos: [ToDo])
-    func showError(_ message: String)
-    func updateTaskCount(_ count: Int)
-    func updateTask(_ todo: ToDo)
-}
-
 final class TasksViewController: UIViewController {
     
     // MARK: - Constants
