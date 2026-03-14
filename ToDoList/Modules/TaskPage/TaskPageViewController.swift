@@ -33,6 +33,7 @@ final class TaskPageViewController: UIViewController {
         let textField = UITextField()
         textField.font = AppFont.bold34
         textField.textColor = .appWhite
+        
         textField.placeholder = Constants.TextFieldPlaceholder
         textField.borderStyle = .none
         textField.returnKeyType = .done
@@ -62,6 +63,7 @@ final class TaskPageViewController: UIViewController {
         let textView = UITextView()
         textView.font = AppFont.regular16
         textView.textColor = .appWhite
+        textView.tintColor = .appYellow
         textView.backgroundColor = .clear
         textView.textContainerInset = .zero
         textView.textContainer.lineFragmentPadding = .zero
