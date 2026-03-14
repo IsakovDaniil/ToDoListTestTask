@@ -11,6 +11,7 @@ protocol TasksInteractorProtocol: AnyObject {
     func fetchTasks()
     func searchTasks(query: String)
     func deleteTask(id: Int)
+    func reloadTasks()
     func toggleComplete(todo: ToDo)
 }
 
@@ -58,6 +59,12 @@ extension TasksInteractor: TasksInteractorProtocol {
                 self?.presenter?.didFailWithError(error.localizedDescription)
             }
         }
+    }
+    
+    // MARK: - Reload
+    
+    func reloadTasks() {
+        loadFromStorage()
     }
     
     // MARK: - Delete

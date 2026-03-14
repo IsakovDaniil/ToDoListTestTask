@@ -9,6 +9,7 @@ import Foundation
 
 protocol TasksPresenterProtocol: AnyObject {
     func viewDidLoad()
+    func viewDidAppear()
     func didTapAdd()
     func didTapTask(todo: ToDo)
     func didTapDelete(todo: ToDo)
@@ -36,6 +37,10 @@ extension TasksPresenter: TasksPresenterProtocol {
     
     func viewDidLoad() {
         interactor.fetchTasks()
+    }
+    
+    func viewDidAppear() {
+        interactor.reloadTasks()
     }
     
     func didTapAdd() {

@@ -76,6 +76,7 @@ final class TasksViewController: UIViewController {
         button.tintColor = .appYellow
         return button
     }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -83,6 +84,11 @@ final class TasksViewController: UIViewController {
         setupView()
         setupConstraints()
         presenter?.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presenter?.viewDidAppear()
     }
     
     // MARK: - Setup
