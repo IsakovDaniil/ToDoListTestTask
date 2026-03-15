@@ -1,0 +1,30 @@
+line_length:
+  warning: 300
+  error: 400
+
+type_body_length:
+  warning: 500
+  error: 750
+
+file_length:
+  warning: 750
+  error: 1000
+
+function_parameter_count:
+  warning: 10
+  error: 15
+
+type_name:
+  allowed_symbols: "_"
+
+disabled_rules:
+  - trailing_whitespace
+  - unneeded_override
+
+excluded:
+  - .git
+  - Pods
+  - Carthage
+  - "**/*Tests*"
+  - "**/*Mock*"
+  - "**/*Stub*"
