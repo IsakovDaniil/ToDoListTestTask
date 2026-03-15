@@ -14,8 +14,18 @@ final class TasksViewController: UIViewController {
     private enum Constants {
         static let title = "Задачи"
         static let searchPlaceholder = "Search"
-        static let toolBarLabel = "Нет задач"
         static let backButtonTitle = "Назад"
+        static let toolBarNoTask = "Нет задач"
+        static let editTitle = "Редактировать"
+        static let shareTitle = "Поделиться"
+        static let deleteTitle = "Удалить"
+        static let errorTitle = "Ошибка"
+        static let okButton = "ОК"
+        
+        static let horizontalPadding: CGFloat = 20
+        static let toolMinimumScale: CGFloat = 0.5
+        static let toolNumberOfLines = 1
+        
     }
     
     // MARK: - Properties
@@ -37,7 +47,7 @@ final class TasksViewController: UIViewController {
         let table = UITableView()
         table.backgroundColor = .appBlack
         table.separatorColor = .appGray
-        table.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        table.separatorInset = UIEdgeInsets(top: .zero, left: Constants.horizontalPadding, bottom: .zero, right: Constants.horizontalPadding)
         table.register(TaskCell.self, forCellReuseIdentifier: TaskCell.reuseIdentifier)
         table.tableHeaderView = UIView()
         table.showsVerticalScrollIndicator = false
@@ -47,21 +57,21 @@ final class TasksViewController: UIViewController {
         return table
     }()
     
-    private var toolBarLabel: UILabel = {
+    private let toolBarLabel: UILabel = {
         let label = UILabel()
-        label.text = "Нет задач"
+        label.text = Constants.toolBarNoTask
         label.textColor = .appWhite
         label.font = AppFont.regular11
-        label.numberOfLines = 1
+        label.numberOfLines = Constants.toolNumberOfLines
         label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5
+        label.minimumScaleFactor = Constants.toolMinimumScale
         label.textAlignment = .center
         return label
     }()
     
     private lazy var addButton: UIBarButtonItem = {
         let button = UIBarButtonItem(
-            image: UIImage(systemName: "square.and.pencil"),
+            image: UIImage.Icon.edit,
             style: .plain,
             target: self,
             action: #selector(addButtonTapped)
@@ -118,7 +128,7 @@ final class TasksViewController: UIViewController {
         let appearance = UIToolbarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.backgroundColor = .appGray
-        appearance.shadowColor = UIColor.white.withAlphaComponent(0.5)
+        appearance.shadowColor = .appWhiteOpacity
         navigationController?.toolbar.standardAppearance = appearance
         navigationController?.toolbar.scrollEdgeAppearance = appearance
         
@@ -184,13 +194,13 @@ extension TasksViewController: UITableViewDelegate {
                 return preview
             },
             actionProvider: { _ in
-                let edit = UIAction(title: "Редактировать", image: UIImage(resource: .appEdit)) { [weak self] _ in
+                let edit = UIAction(title: Constants.editTitle, image: UIImage(resource: .appEdit)) { [weak self] _ in
                     self?.presenter?.didTapTask(todo: todo)
                 }
-                let share = UIAction(title: "Поделиться", image: UIImage(resource: .appExport)) { [weak self] _ in
+                let share = UIAction(title: Constants.shareTitle, image: UIImage(resource: .appExport)) { [weak self] _ in
                     self?.presenter?.didTapShare(todo: todo)
                 }
-                let delete = UIAction(title: "Удалить", image: UIImage(resource: .appTrash), attributes: .destructive) { [weak self] _ in
+                let delete = UIAction(title: Constants.deleteTitle, image: UIImage(resource: .appTrash), attributes: .destructive) { [weak self] _ in
                     self?.presenter?.didTapDelete(todo: todo)
                 }
                 return UIMenu(title: "", children: [edit, share, delete])
@@ -217,8 +227,8 @@ extension TasksViewController: TasksViewProtocol {
     }
     
     func showError(_ message: String) {
-        let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        let alert = UIAlertController(title: Constants.errorTitle, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Constants.okButton, style: .default))
         present(alert, animated: true)
     }
     
@@ -229,6 +239,6 @@ extension TasksViewController: TasksViewProtocol {
     func updateTask(_ todo: ToDo) {
         guard let index = todos.firstIndex(where: { $0.id == todo.id }) else { return }
         todos[index] = todo
-        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+        tableView.reloadRows(at: [IndexPath(row: index, section: .zero)], with: .none)
     }
 }

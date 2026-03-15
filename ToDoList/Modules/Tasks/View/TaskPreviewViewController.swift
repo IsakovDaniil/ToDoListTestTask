@@ -23,9 +23,9 @@ class TaskPreviewViewController: UIViewController {
     
     // MARK: - UIElements
     
-    private var titleLabel = UILabel.taskTitleLabel()
-    private var descriptionLabel = UILabel.taskDescriptionLabel()
-    private var dateLabel = UILabel.taskDateLabel()
+    private let titleLabel = UILabel.taskTitleLabel()
+    private let descriptionLabel = UILabel.taskDescriptionLabel()
+    private let dateLabel = UILabel.taskDateLabel()
     private lazy var textStackView = UIStackView.taskTextStackView(with: [titleLabel, descriptionLabel, dateLabel])
     
     // MARK: - Init
