@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		86E029B72F66FFDC002B42D3 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 86E029B62F66FFDC002B42D3 /* RswiftLibrary */; };
+		86E029B92F66FFDC002B42D3 /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 86E029B82F66FFDC002B42D3 /* rswift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		868840712F66AD3C00846611 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -59,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E029B72F66FFDC002B42D3 /* RswiftLibrary in Frameworks */,
+				86E029B92F66FFDC002B42D3 /* rswift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,12 +128,15 @@
 			buildRules = (
 			);
 			dependencies = (
+				86E029BB2F670000002B42D3 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				86D101F02F5F16D10051725C /* ToDoList */,
 			);
 			name = ToDoList;
 			packageProductDependencies = (
+				86E029B62F66FFDC002B42D3 /* RswiftLibrary */,
+				86E029B82F66FFDC002B42D3 /* rswift */,
 			);
 			productName = ToDoList;
 			productReference = 86D101EE2F5F16D10051725C /* ToDoList.app */;
@@ -158,9 +168,13 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 86D101E52F5F16D10051725C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				86E029B52F66FFDC002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 86D101EF2F5F16D10051725C /* Products */;
 			projectDirPath = "";
@@ -233,6 +247,10 @@
 			isa = PBXTargetDependency;
 			target = 86D101ED2F5F16D10051725C /* ToDoList */;
 			targetProxy = 868840712F66AD3C00846611 /* PBXContainerItemProxy */;
+		};
+		86E029BB2F670000002B42D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 86E029BA2F670000002B42D3 /* RswiftGenerateInternalResources */;
 		};
 /* End PBXTargetDependency section */
 
@@ -367,6 +385,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -431,6 +450,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -514,6 +534,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		86E029B52F66FFDC002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		86E029B62F66FFDC002B42D3 /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E029B52F66FFDC002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = RswiftLibrary;
+		};
+		86E029B82F66FFDC002B42D3 /* rswift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E029B52F66FFDC002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = rswift;
+		};
+		86E029BA2F670000002B42D3 /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E029B52F66FFDC002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = "plugin:RswiftGenerateInternalResources";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 86D101E62F5F16D10051725C /* Project object */;
 }

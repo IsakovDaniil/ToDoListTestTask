@@ -1,0 +1,41 @@
+/* 
+ Localizable.strings
+ ToDoList
+ 
+ Created by Даниил on 15.03.2026.
+ 
+ */
+
+/* MARK: - Tasks Screen */
+
+/* Navigation */
+"tasks.title" = "Задачи";
+"tasks.search.placeholder" = "Поиск";
+"tasks.back" = "Назад";
+
+/* Toolbar */
+"tasks.toolbar.noTasks" = "Нет задач";
+
+/* Task Context Menu */
+"task.context.edit" = "Редактировать";
+"task.context.share" = "Поделиться";
+"task.context.delete" = "Удалить";
+
+/* Task Cell */
+"task.completed" = "Выполнено";
+
+/* Task Preview */
+"task.preview.created" = "Создано %@";
+
+/* Errors */
+"error.title" = "Ошибка";
+"error.ok" = "ОК";
+"error.network" = "Не удалось загрузить задачи из сети";
+"error.storage.fetch" = "Не удалось загрузить задачи";
+"error.storage.save" = "Не удалось сохранить изменения";
+"error.storage.delete" = "Не удалось удалить задачу";
+"error.unknown" = "Неизвестная ошибка";
+
+/* Empty State */
+"tasks.empty.title" = "Нет задач";
+"tasks.empty.subtitle" = "Создайте свою первую задачу";
