@@ -12,7 +12,7 @@ final class TaskPageViewController: UIViewController {
     // MARK: - Constants
     
     private enum Constants {
-        static let TextFieldPlaceholder = "Название"
+        static let textFieldPlaceholder = "Название"
         static let horizontalPadding: CGFloat = 20
         static let titleTopPadding: CGFloat = 8
         static let dateTopPadding: CGFloat = 8
@@ -29,8 +29,8 @@ final class TaskPageViewController: UIViewController {
         let textField = UITextField()
         textField.font = AppFont.bold34
         textField.textColor = .appWhite
-        
-        textField.placeholder = Constants.TextFieldPlaceholder
+        textField.tintColor = .appYellow
+        textField.placeholder = Constants.textFieldPlaceholder
         textField.borderStyle = .none
         textField.returnKeyType = .done
         textField.delegate = self
@@ -38,14 +38,7 @@ final class TaskPageViewController: UIViewController {
         return textField
     }()
     
-    private var dateLabel: UILabel = {
-        let label = UILabel()
-        label.font = AppFont.regular12
-        label.textColor = .appWhiteOpacity
-        label.text = DateHelper.format(Date())
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let dateLabel: UILabel = UILabel.taskDateLabel()
     
     private lazy var headerStackView: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [titleTextField, dateLabel])
@@ -55,7 +48,7 @@ final class TaskPageViewController: UIViewController {
         return stack
     }()
     
-    private var descriptionTextView: UITextView = {
+    private let descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.font = AppFont.regular16
         textView.textColor = .appWhite
@@ -90,6 +83,7 @@ final class TaskPageViewController: UIViewController {
     // MARK: - Setup
     
     private func setupView() {
+        dateLabel.text = DateHelper.format(Date())
         view.backgroundColor = .appBlack
         view.addSubview(headerStackView)
         view.addSubview(descriptionTextView)
