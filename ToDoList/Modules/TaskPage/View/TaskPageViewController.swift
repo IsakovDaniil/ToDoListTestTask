@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import RswiftResources
 
 final class TaskPageViewController: UIViewController {
     
     // MARK: - Constants
     
     private enum Constants {
-        static let textFieldPlaceholder = "Название"
+        static let textFieldPlaceholder = R.string.localizable.taskpagePlaceholder()
         static let horizontalPadding: CGFloat = 20
         static let titleTopPadding: CGFloat = 8
         static let dateTopPadding: CGFloat = 8

@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import RswiftResources
 
 enum StorageError: LocalizedError {
     case noFound
     
     var errorDescription: String? {
-        "Задача не найдена"
+        R.string.localizable.errorStorageNotFound()
     }
 }

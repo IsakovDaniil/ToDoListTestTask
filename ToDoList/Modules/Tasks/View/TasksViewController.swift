@@ -6,26 +6,29 @@
 //
 
 import UIKit
+import RswiftResources
 
 final class TasksViewController: UIViewController {
     
     // MARK: - Constants
     
     private enum Constants {
-        static let title = "Задачи"
-        static let searchPlaceholder = "Search"
-        static let backButtonTitle = "Назад"
-        static let toolBarNoTask = "Нет задач"
-        static let editTitle = "Редактировать"
-        static let shareTitle = "Поделиться"
-        static let deleteTitle = "Удалить"
-        static let errorTitle = "Ошибка"
-        static let okButton = "ОК"
+        static let title = R.string.localizable.tasksTitle()
+        static let searchPlaceholder = R.string.localizable.tasksSearchPlaceholder()
+        static let backButtonTitle = R.string.localizable.tasksBack()
+        
+        static let toolBarNoTask = R.string.localizable.tasksToolbarNoTasks()
+        
+        static let editTitle = R.string.localizable.taskContextEdit()
+        static let shareTitle = R.string.localizable.taskContextShare()
+        static let deleteTitle = R.string.localizable.taskContextDelete()
+        
+        static let errorTitle = R.string.localizable.errorTitle()
+        static let okButton = R.string.localizable.errorOk()
         
         static let horizontalPadding: CGFloat = 20
         static let toolMinimumScale: CGFloat = 0.5
         static let toolNumberOfLines = 1
-        
     }
     
     // MARK: - Properties

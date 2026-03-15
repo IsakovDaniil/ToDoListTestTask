@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RswiftResources
 
 enum NetworkError: LocalizedError {
     case invalidURL
@@ -16,11 +17,16 @@ enum NetworkError: LocalizedError {
     
     var errorDescription: String? {
         switch self {
-        case .invalidURL: "Неверный URL"
-        case .noData: "Нет данных от сервера"
-        case .serverError(let code): "Ошибка сервера: \(code)"
-        case .decodingFailed(let error): "Ошибка декодирования: \(error.localizedDescription)"
-        case .unknown(let error): error?.localizedDescription ?? "Неизвестная ошибка"
+        case .invalidURL:
+            R.string.localizable.errorNetworkInvalidURL()
+        case .noData:
+            R.string.localizable.errorNetworkNoData()
+        case .serverError(let code):
+            String(format: R.string.localizable.errorNetworkServerError(code), code)
+        case .decodingFailed(let error):
+            "\(R.string.localizable.errorNetworkDecodingFailed()): \(error.localizedDescription)"
+        case .unknown(let error):
+            error?.localizedDescription ?? R.string.localizable.errorNetworkUnknown()
         }
     }
 }
