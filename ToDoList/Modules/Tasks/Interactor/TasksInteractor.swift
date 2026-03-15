@@ -11,7 +11,7 @@ final class TasksInteractor {
     weak var presenter: TasksPresenterProtocol?
     
     private let storage: ToDoStorageProtocol
-    private let network: NetworkClient
+    private let network: NetworkClientProtocol
     
     init(storage: ToDoStorageProtocol = ToDoStorage(),
          network: NetworkClient = .shared) {

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - NetworkClient
 
-final class NetworkClient {
+final class NetworkClient: NetworkClientProtocol {
     
     // MARK: - Shared
     
@@ -28,7 +28,6 @@ final class NetworkClient {
     
     // MARK: - Public Methods
     
-    @discardableResult
     func fetchTodos(completion: @escaping (Result<[ToDoDTO], NetworkError>) -> Void) -> URLSessionDataTask? {
         let request: URLRequest
         do {
