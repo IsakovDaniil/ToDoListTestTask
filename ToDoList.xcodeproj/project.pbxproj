@@ -160,7 +160,7 @@
 				};
 			};
 			buildConfigurationList = 86D101E92F5F16D10051725C /* Build configuration list for PBXProject "ToDoList" */;
-			developmentRegion = en;
+			developmentRegion = ru;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,

@@ -13,15 +13,15 @@
                 <key>NSStringFormatValueTypeKey</key>
                 <string>d</string>
                 <key>zero</key>
-                <string>%d Задач</string>
+                <string>%d Tasks</string>
                 <key>one</key>
-                <string>%d Задача</string>
+                <string>%d Task</string>
                 <key>few</key>
-                <string>%d Задачи</string>
+                <string>%d Tasks</string>
                 <key>many</key>
-                <string>%d Задач</string>
+                <string>%d Tasks</string>
                 <key>other</key>
-                <string>%d Задач</string>
+                <string>%d Tasks</string>
             </dict>
         </dict>
     </dict>

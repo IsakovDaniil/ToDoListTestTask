@@ -1,58 +1,57 @@
 /* 
- Localizable.strings
- ToDoList
- 
- Created by Даниил on 15.03.2026.
- 
- */
+  Localizable.strings
+  ToDoList
+
+  Created by Даниил on 15.03.2026.
+  
+*/
 
 /* MARK: - Tasks Screen */
 
 /* Navigation */
-"tasks.title" = "Задачи";
-"tasks.search.placeholder" = "Поиск";
-"tasks.back" = "Назад";
+"tasks.title" = "Tasks";
+"tasks.search.placeholder" = "Search";
+"tasks.back" = "Back";
 
 /* Toolbar */
-"tasks.toolbar.noTasks" = "Нет задач";
+"tasks.toolbar.noTasks" = "No tasks";
 
 /* Task Context Menu */
-"task.context.edit" = "Редактировать";
-"task.context.share" = "Поделиться";
-"task.context.delete" = "Удалить";
+"task.context.edit" = "Edit";
+"task.context.share" = "Share";
+"task.context.delete" = "Delete";
 
 /* Task Cell */
-"task.completed" = "Выполнено";
+"task.completed" = "Completed";
 
 /* Task Preview */
-"task.preview.created" = "Создано %@";
+"task.preview.created" = "Created %@";
 
 /* Errors */
-"error.title" = "Ошибка";
-"error.ok" = "ОК";
-"error.network" = "Не удалось загрузить задачи из сети";
-"error.storage.fetch" = "Не удалось загрузить задачи";
-"error.storage.save" = "Не удалось сохранить изменения";
-"error.storage.delete" = "Не удалось удалить задачу";
-"error.unknown" = "Неизвестная ошибка";
+"error.title" = "Error";
+"error.ok" = "OK";
+"error.network" = "Failed to load tasks from the network";
+"error.storage.fetch" = "Failed to load tasks";
+"error.storage.save" = "Failed to save changes";
+"error.storage.delete" = "Failed to delete task";
+"error.unknown" = "Unknown error";
 
 /* Empty State */
-"tasks.empty.title" = "Нет задач";
-"tasks.empty.subtitle" = "Создайте свою первую задачу";
+"tasks.empty.title" = "No tasks";
+"tasks.empty.subtitle" = "Create your first task";
 
 /* MARK: - Task Page Screen */
 
 /* Navigation */
-"taskpage.placeholder" = "Название";
-"taskpage.back" = "Назад";
+"taskpage.placeholder" = "Title";
+"taskpage.back" = "Back";
 
 /* MARK: - Network Errors */
-"error.network.invalidURL" = "Неверный URL";
-"error.network.noData" = "Нет данных от сервера";
-"error.network.serverError" = "Ошибка сервера: %d";
-"error.network.decodingFailed" = "Ошибка декодирования";
-"error.network.unknown" = "Неизвестная ошибка";
+"error.network.invalidURL" = "Invalid URL";
+"error.network.noData" = "No data from server";
+"error.network.serverError" = "Server error: %d";
+"error.network.decodingFailed" = "Decoding failed";
+"error.network.unknown" = "Unknown error";
 
 /* MARK: - Storage Errors */
-"error.storage.notFound" = "Задача не найдена";
-
+"error.storage.notFound" = "Task not found";
