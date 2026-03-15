@@ -97,6 +97,11 @@ final class TasksViewController: UIViewController {
         presenter?.viewDidAppear()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     // MARK: - Setup
     
     private func setupView() {

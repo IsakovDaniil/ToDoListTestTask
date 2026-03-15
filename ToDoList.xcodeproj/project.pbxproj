@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		86E029B72F66FFDC002B42D3 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 86E029B62F66FFDC002B42D3 /* RswiftLibrary */; };
-		86E029B92F66FFDC002B42D3 /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 86E029B82F66FFDC002B42D3 /* rswift */; };
+		86E02B252F671FAD002B42D3 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 86E02B242F671FAD002B42D3 /* RswiftLibrary */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86E029B72F66FFDC002B42D3 /* RswiftLibrary in Frameworks */,
-				86E029B92F66FFDC002B42D3 /* rswift in Frameworks */,
+				86E02B252F671FAD002B42D3 /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,20 +121,19 @@
 				86D101EA2F5F16D10051725C /* Sources */,
 				86D101EB2F5F16D10051725C /* Frameworks */,
 				86D101EC2F5F16D10051725C /* Resources */,
-				86D102092F5F19C10051725C /* ShellScript */,
+				86D102092F5F19C10051725C /* Run Script */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				86E029BB2F670000002B42D3 /* PBXTargetDependency */,
+				86E02B272F671FBA002B42D3 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				86D101F02F5F16D10051725C /* ToDoList */,
 			);
 			name = ToDoList;
 			packageProductDependencies = (
-				86E029B62F66FFDC002B42D3 /* RswiftLibrary */,
-				86E029B82F66FFDC002B42D3 /* rswift */,
+				86E02B242F671FAD002B42D3 /* RswiftLibrary */,
 			);
 			productName = ToDoList;
 			productReference = 86D101EE2F5F16D10051725C /* ToDoList.app */;
@@ -173,7 +170,7 @@
 			mainGroup = 86D101E52F5F16D10051725C;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				86E029B52F66FFDC002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */,
+				86E02B232F671FAD002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 86D101EF2F5F16D10051725C /* Products */;
@@ -204,7 +201,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		86D102092F5F19C10051725C /* ShellScript */ = {
+		86D102092F5F19C10051725C /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -214,6 +211,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -248,9 +246,9 @@
 			target = 86D101ED2F5F16D10051725C /* ToDoList */;
 			targetProxy = 868840712F66AD3C00846611 /* PBXContainerItemProxy */;
 		};
-		86E029BB2F670000002B42D3 /* PBXTargetDependency */ = {
+		86E02B272F671FBA002B42D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 86E029BA2F670000002B42D3 /* RswiftGenerateInternalResources */;
+			productRef = 86E02B262F671FBA002B42D3 /* RswiftGenerateInternalResources */;
 		};
 /* End PBXTargetDependency section */
 
@@ -536,7 +534,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		86E029B52F66FFDC002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */ = {
+		86E02B232F671FAD002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mac-cain13/R.swift.git";
 			requirement = {
@@ -547,19 +545,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		86E029B62F66FFDC002B42D3 /* RswiftLibrary */ = {
+		86E02B242F671FAD002B42D3 /* RswiftLibrary */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 86E029B52F66FFDC002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */;
+			package = 86E02B232F671FAD002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */;
 			productName = RswiftLibrary;
 		};
-		86E029B82F66FFDC002B42D3 /* rswift */ = {
+		86E02B262F671FBA002B42D3 /* RswiftGenerateInternalResources */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 86E029B52F66FFDC002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */;
-			productName = rswift;
-		};
-		86E029BA2F670000002B42D3 /* RswiftGenerateInternalResources */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 86E029B52F66FFDC002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */;
+			package = 86E02B232F671FAD002B42D3 /* XCRemoteSwiftPackageReference "R.swift" */;
 			productName = "plugin:RswiftGenerateInternalResources";
 		};
 /* End XCSwiftPackageProductDependency section */
