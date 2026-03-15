@@ -46,7 +46,7 @@ final class TaskPagePresenterTests: XCTestCase {
     // MARK: - viewDidLoad
     
     func test_viewDidLoad_createMode_viewNotConfigured() {
-        presenter = makePresenter(mode: .create)  // присваиваем self.presenter
+        presenter = makePresenter(mode: .create)
         presenter.viewDidLoad()
         XCTAssertFalse(mockView.configureCalled)
     }
