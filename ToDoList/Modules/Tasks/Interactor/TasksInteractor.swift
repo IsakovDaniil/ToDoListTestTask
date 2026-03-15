@@ -14,7 +14,7 @@ final class TasksInteractor {
     private let network: NetworkClientProtocol
     
     init(storage: ToDoStorageProtocol = ToDoStorage(),
-         network: NetworkClient = .shared) {
+         network: NetworkClientProtocol = NetworkClient.shared) {
         self.storage = storage
         self.network = network
     }
