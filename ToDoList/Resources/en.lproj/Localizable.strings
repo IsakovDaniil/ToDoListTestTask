@@ -39,3 +39,9 @@
 /* Empty State */
 "tasks.empty.title" = "No tasks";
 "tasks.empty.subtitle" = "Create your first task";
+
+/* MARK: - Task Page Screen */
+
+/* Navigation */
+"taskpage.placeholder" = "Title";
+"taskpage.back" = "Back";

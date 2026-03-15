@@ -39,3 +39,9 @@
 /* Empty State */
 "tasks.empty.title" = "Нет задач";
 "tasks.empty.subtitle" = "Создайте свою первую задачу";
+
+/* MARK: - Task Page Screen */
+
+/* Navigation */
+"taskpage.placeholder" = "Название";
+"taskpage.back" = "Назад";
