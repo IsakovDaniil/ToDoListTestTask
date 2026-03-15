@@ -41,6 +41,7 @@ extension TasksInteractor: TasksInteractorProtocol {
     func searchTasks(query: String) {
         if query.isEmpty {
             loadFromStorage()
+            return
         }
         
         storage.search(query: query) { [weak self] result in
