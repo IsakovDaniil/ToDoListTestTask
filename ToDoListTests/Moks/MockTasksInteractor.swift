@@ -8,6 +8,7 @@
 @testable import ToDoList
 
 final class MockTasksInteractor: TasksInteractorProtocol {
+    
     var fetchTasksCalled = false
     var reloadTasksCalled = false
     var deleteTasksCalled = false
@@ -26,12 +27,12 @@ final class MockTasksInteractor: TasksInteractorProtocol {
         reloadTasksCalled = true
     }
     
-    func deleteTasks(id: Int) {
+    func deleteTask(id: Int) {
         deleteTasksCalled = true
         deletedId = id
     }
     
-    func toggleCompleted(todo: ToDo) {
+    func toggleComplete(todo: ToDo) {
         toggleCompleteCalled = true
         toggledTodo = todo
     }
