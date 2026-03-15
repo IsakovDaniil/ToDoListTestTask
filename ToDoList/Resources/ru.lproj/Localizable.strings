@@ -45,3 +45,14 @@
 /* Navigation */
 "taskpage.placeholder" = "Название";
 "taskpage.back" = "Назад";
+
+/* MARK: - Network Errors */
+"error.network.invalidURL" = "Неверный URL";
+"error.network.noData" = "Нет данных от сервера";
+"error.network.serverError" = "Ошибка сервера: %d";
+"error.network.decodingFailed" = "Ошибка декодирования";
+"error.network.unknown" = "Неизвестная ошибка";
+
+/* MARK: - Storage Errors */
+"error.storage.notFound" = "Задача не найдена";
+

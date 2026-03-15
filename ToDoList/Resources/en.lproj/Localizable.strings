@@ -45,3 +45,13 @@
 /* Navigation */
 "taskpage.placeholder" = "Title";
 "taskpage.back" = "Back";
+
+/* MARK: - Network Errors */
+"error.network.invalidURL" = "Invalid URL";
+"error.network.noData" = "No data from server";
+"error.network.serverError" = "Server error: %d";
+"error.network.decodingFailed" = "Decoding failed";
+"error.network.unknown" = "Unknown error";
+
+/* MARK: - Storage Errors */
+"error.storage.notFound" = "Task not found";
