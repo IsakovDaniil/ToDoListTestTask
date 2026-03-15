@@ -19,7 +19,7 @@ final class CoreDataStack {
         let container = NSPersistentContainer(name: "ToDoList")
         container.loadPersistentStores { _, error in
             if let error {
-                fatalError("CoreData не загрузился: \(error.localizedDescription)")
+                assertionFailure("CoreData не загрузился: \(error.localizedDescription)")
             }
         }
         container.viewContext.automaticallyMergesChangesFromParent = true
