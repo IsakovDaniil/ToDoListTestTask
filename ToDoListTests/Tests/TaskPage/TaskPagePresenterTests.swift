@@ -61,9 +61,9 @@ final class TaskPagePresenterTests: XCTestCase {
     
     // MARK: - viewWillDisappear
     
-    func test_viewWillDisappear_emptyTitle_doesNotSave() {
+    func test_viewWillDisappear_emptyTitleAndDescription_doesNotSave() {
         presenter = makePresenter(mode: .create)
-        presenter.viewWillDisappear(title: "", description: "Описание")
+        presenter.viewWillDisappear(title: "", description: "")
         XCTAssertFalse(mockInteractor.addTaskCalled)
     }
     
@@ -97,5 +97,19 @@ final class TaskPagePresenterTests: XCTestCase {
         presenter.viewWillDisappear(title: "Заголовок", description: "Описание")
         XCTAssertFalse(mockInteractor.updateTaskCalled)
     }
+    
+    func test_viewWillDisappear_emptyTitle_withDescription_addsTask() {
+        presenter = makePresenter(mode: .create)
+        presenter.viewWillDisappear(title: "", description: "Только описание без заголовка")
+        XCTAssertTrue(mockInteractor.addTaskCalled)
+    }
+    
+    func test_viewWillDisappear_emptyTitle_titleFromDescription() {
+        presenter = makePresenter(mode: .create)
+        presenter.viewWillDisappear(title: "", description: "Сходить в магазин за продуктами")
+        XCTAssertEqual(mockInteractor.addedTitle, "Сходить в магазин")
+    }
+
+
 }
 

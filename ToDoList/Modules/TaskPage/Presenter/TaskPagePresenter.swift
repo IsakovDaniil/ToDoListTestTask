@@ -29,13 +29,17 @@ extension TaskPagePresenter: TaskPagePresenterProtocol {
     }
     
     func viewWillDisappear(title: String, description: String) {
-        guard !title.isEmpty else { return }
+        guard !title.isEmpty || !description.isEmpty else { return }
         
+        let finalTitle = title.isEmpty
+            ? description.components(separatedBy: " ").prefix(3).joined(separator: " ")
+            : title
+
         switch mode {
         case .create:
-            interactor.addTask(title: title, description: description)
+            interactor.addTask(title: finalTitle, description: description)
         case .edit(let todo):
-            interactor.updateTask(todo: todo, title: title, description: description)
+            interactor.updateTask(todo: todo, title: finalTitle, description: description)
         }
     }
     
