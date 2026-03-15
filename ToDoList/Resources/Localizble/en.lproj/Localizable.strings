@@ -1,0 +1,57 @@
+/* 
+  Localizable.strings
+  ToDoList
+
+  Created by Даниил on 15.03.2026.
+  
+*/
+
+/* MARK: - Tasks Screen */
+
+/* Navigation */
+"tasks.title" = "Tasks";
+"tasks.search.placeholder" = "Search";
+"tasks.back" = "Back";
+
+/* Toolbar */
+"tasks.toolbar.noTasks" = "No tasks";
+
+/* Task Context Menu */
+"task.context.edit" = "Edit";
+"task.context.share" = "Share";
+"task.context.delete" = "Delete";
+
+/* Task Cell */
+"task.completed" = "Completed";
+
+/* Task Preview */
+"task.preview.created" = "Created %@";
+
+/* Errors */
+"error.title" = "Error";
+"error.ok" = "OK";
+"error.network" = "Failed to load tasks from the network";
+"error.storage.fetch" = "Failed to load tasks";
+"error.storage.save" = "Failed to save changes";
+"error.storage.delete" = "Failed to delete task";
+"error.unknown" = "Unknown error";
+
+/* Empty State */
+"tasks.empty.title" = "No tasks";
+"tasks.empty.subtitle" = "Create your first task";
+
+/* MARK: - Task Page Screen */
+
+/* Navigation */
+"taskpage.placeholder" = "Title";
+"taskpage.back" = "Back";
+
+/* MARK: - Network Errors */
+"error.network.invalidURL" = "Invalid URL";
+"error.network.noData" = "No data from server";
+"error.network.serverError" = "Server error: %d";
+"error.network.decodingFailed" = "Decoding failed";
+"error.network.unknown" = "Unknown error";
+
+/* MARK: - Storage Errors */
+"error.storage.notFound" = "Task not found";
