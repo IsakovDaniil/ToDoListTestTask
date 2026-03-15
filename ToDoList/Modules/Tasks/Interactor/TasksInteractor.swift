@@ -8,10 +8,14 @@
 import Foundation
 
 final class TasksInteractor {
+    
+    // MARK: - Properties
     weak var presenter: TasksPresenterProtocol?
     
     private let storage: ToDoStorageProtocol
     private let network: NetworkClientProtocol
+    
+    // MARK: - Init
     
     init(storage: ToDoStorageProtocol = ToDoStorage(),
          network: NetworkClientProtocol = NetworkClient.shared) {

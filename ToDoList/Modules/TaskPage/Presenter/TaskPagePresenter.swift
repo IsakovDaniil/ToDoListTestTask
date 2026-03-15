@@ -8,11 +8,14 @@
 import Foundation
 
 final class TaskPagePresenter {
+    
+    // MARK: - Properties
     weak var view: TaskPageViewProtocol?
     var router: TaskPageRouterProtocol
     var interactor: TaskPageInteractorProtocol
     let mode: TaskPageMode
     
+    // MARK: - Init
     init(interactor: TaskPageInteractorProtocol, router: TaskPageRouterProtocol, mode: TaskPageMode) {
         self.interactor = interactor
         self.router = router

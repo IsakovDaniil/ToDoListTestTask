@@ -8,9 +8,12 @@
 import Foundation
 
 final class TaskPageInteractor {
+    
+    // MARK: - Properties
     weak var presenter: TaskPagePresenterProtocol?
     private let storage: ToDoStorageProtocol
     
+    // MARK: - Init
     init(storage: ToDoStorageProtocol = ToDoStorage()) {
         self.storage = storage
     }

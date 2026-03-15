@@ -8,10 +8,13 @@
 import Foundation
 
 final class TasksPresenter {
+    
+    // MARK: - Properties
     weak var view: TasksViewProtocol?
     var router: TasksRouterProtocol
     var interactor: TasksInteractorProtocol
     
+    // MARK: - Init
     init(interactor: TasksInteractorProtocol, router: TasksRouterProtocol) {
         self.interactor = interactor
         self.router = router
